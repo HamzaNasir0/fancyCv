@@ -5,14 +5,256 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hamza Nasir</title>
-    <link rel="stylesheet" href="./style.css">
+    <!-- <link rel="stylesheet" href="./style.css"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
 </head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        color: white;
+        background: linear-gradient(to bottom right, #5b21b6 0%, #be185d 100%);
+        background-attachment: fixed;
+        min-height: 100vh;
+    }
+
+    /* hero basic section */
+
+    .section {
+        min-height: 100vh;
+        scroll-snap-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+    }
+
+    .glass {
+        backdrop-filter: blur(10px);
+        background: rgba(28, 25, 23, 0.6);
+        border-radius: 1rem;
+        padding: 2rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-section {
+        flex-direction: column;
+        justify-content: space-between;
+        padding-bottom: 3rem;
+    }
+
+    .hero-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1200px;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+
+    .hero-text {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .hero-text h1 {
+        font-size: clamp(2rem, 5vw, 5rem);
+        font-weight: 800;
+        margin-bottom: 1rem;
+        line-height: 1.1;
+    }
+
+    .accent {
+        background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+        background-clip: text;
+    }
+
+    .profile-img {
+        width: clamp(200px, 30vw, 400px);
+        height: clamp(200px, 30vw, 400px);
+        border-radius: 50%;
+        border: 6px solid white;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .social-links {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+
+    .social-links a {
+        color: white;
+        font-size: 2rem;
+        padding: 0.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+        color: #a855f7;
+        transform: scale(1.1);
+    }
+
+
+    .scroll-indicator {
+        animation: bounce 2s infinite;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+
+    .scroll-indicator:hover {
+        color: #a855f7;
+    }
+
+    @keyframes bounce {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-1rem);
+        }
+    }
+
+    .about-section {
+        max-width: 1200px;
+        width: 100%;
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .about-text {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .about-text h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .about-text p {
+        line-height: 1.8;
+        opacity: 0.9;
+    }
+
+    .tech-icons {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .tech-row {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .tech-icon {
+        backdrop-filter: blur(12px);
+        background: rgba(28, 25, 23, 0.6);
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+</style>
 
 <body>
+    <!-- Hero Section -->
+    <div class="section hero-section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="glass">
+                    <h1>Hi there, I'm</h1>
+                </div>
+                <div class="glass" style="margin-top: 1rem;">
+                    <h1 class="accent">Hamza Nasir.</h1>
+                </div>
+                <div class="glass" style="margin-top: 1rem; width: fit-content;">
+                    <div class="social-links">
+                        <a href="https://github.com" target="_blank" aria-label="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <img src="https://placehold.co/400" alt="Profile" class="profile-img">
+        </div>
+        <div class="scroll-indicator" onclick="document.getElementById('about').scrollIntoView()">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" style="width: 3rem; height: 3rem;">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5l7.5 7.5 7.5-7.5"></path>
+            </svg>
+        </div>
+    </div>
 
+    <!-- About Section -->
+    <div class="section" id="about">
+        <div class="about-section">
+            <div class="about-text glass">
+                <h2 class="accent">About</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi quibusdam facilis dolores rerum nihil
+                    iste praesentium beatae explicabo dolor fuga a eligendi nostrum, eum ab nobis enim. Praesentium,
+                    officiis minus.
+                    <br><br>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro debitis aliquid quibusdam dolorem
+                    optio quia possimus veritatis deleniti minus repellat fugit, praesentium soluta illo corporis,
+                    itaque necessitatibus et quae tempore.
+                </p>
+            </div>
+            <div class="tech-icons">
+                <div class="tech-row">
+                    <div class="tech-icon"><i class="fa-brands fa-python"></i></div>
+                    <div class="tech-icon"><i class="fa-solid fa-flask"></i></div>
+                    <div class="tech-icon"><i class="fa-brands fa-java"></i></div>
+                </div>
+                <div class="tech-row">
+                    <div class="tech-icon"><i class="fa-brands fa-html5"></i></div>
+                    <div class="tech-icon"><i class="fa-brands fa-css"></i></div>
+                    <div class="tech-icon"><i class="fa-brands fa-js"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- basic project template -->
+    <div class="section">
+        <div>
+            <img src="https://placehold.co/800x500" alt="">
+            <div style="flex: 1;"></div>
+            <a href=""></a>
+        </div>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
