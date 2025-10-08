@@ -180,6 +180,91 @@
         font-size: 2.5rem;
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
     }
+
+
+    /*  Project sections */
+    .project-section {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .project-container {
+        max-width: 1200px;
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+        gap: 2rem;
+        position: relative;
+    }
+
+    .project-container .reverse {
+        flex-direction: row-reverse;
+    }
+
+    .project-screenshot {
+        position: absolute;
+        max-width: 50%;
+        height: auto;
+        animation: float 5s ease-in-out infinite;
+        z-index: -1;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        border-radius: 0.5rem;
+    }
+
+    .project-container:not(.reverse) .project-screenshot {
+        left: -2%;
+        transform: translateX(-50%);
+    }
+
+    .project-container .reverse .project-screenshot {
+        left: -25%;
+        transform: translateX(50%);
+    }
+
+    @keyframes float {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(2vh);
+        }
+    }
+
+    .project-card {
+        backdrop-filter: blur(12px);
+        background: rgba(28, 25, 23, 0.6);
+        border-radius: 1rem;
+        padding: 2.5rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        z-index: 2;
+        position: relative;
+        max-width: 500px;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+    }
+
+    .project-card:hover {
+        transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(-5px);
+    }
+
+    .project-card h3 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .project-card p {
+        line-height: 1.6;
+        opacity: 0.9;
+    }
+
+    footer {
+        text-align: center;
+        padding: 2rem;
+        font-weight: bold;
+    }
 </style>
 
 <body>
@@ -198,7 +283,7 @@
                         <a href="https://github.com" target="_blank" aria-label="GitHub">
                             <i class="fa-brands fa-github"></i>
                         </a>
-                        <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                        <a href="https://x.com" target="_blank" aria-label="Twitter">
                             <i class="fa-brands fa-twitter"></i>
                         </a>
                         <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
@@ -247,15 +332,69 @@
         </div>
     </div>
 
-    <!-- basic project template -->
-    <div class="section">
-        <div>
-            <img src="https://placehold.co/800x500" alt="">
+    <!-- basic project template 1 -->
+    <div class="section project-section">
+        <div class="project-container">
+            <img src="https://placehold.co/800x500" alt="project 1" class="project-screenshot">
             <div style="flex: 1;"></div>
-            <a href=""></a>
+            <a href="https://github.com" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="project-card">
+                    <h3 class="accent">Project One</h3>
+                    <p>
+                        An innovative application that solves real-world problems. Built with modern
+                        technologies and best practices, featuring an intuitive user interface and
+                        powerful functionality.
+                    </p>
+                </div>
+            </a>
         </div>
     </div>
 
+
+    <!-- basic project template 2 -->
+    <div class="section project-section">
+        <div class="project-container reverse">
+            <img src="https://placehold.co/800x500" alt="project 2" class="project-screenshot">
+            <div style="flex: 1;"></div>
+            <a href="https://github.com" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="project-card">
+                    <h3 class="accent">Project Two</h3>
+                    <p>
+                        An innovative application that solves real-world problems. Built with modern
+                        technologies and best practices, featuring an intuitive user interface and
+                        powerful functionality.
+                    </p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+
+    <!-- basic project template 3 -->
+    <div class="section project-section">
+        <div class="project-container reverse">
+            <img src="https://placehold.co/800x500" alt="project 2" class="project-screenshot">
+            <div style="flex: 1;"></div>
+            <a href="https://github.com" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="project-card">
+                    <h3 class="accent">Project Three</h3>
+                    <p>
+                        An innovative application that solves real-world problems. Built with modern
+                        technologies and best practices, featuring an intuitive user interface and
+                        powerful functionality.
+                    </p>
+                </div>
+            </a>
+        </div>
+    </div>
+    </div>
+
+
+    <div class="section" style="min-height: auto; scroll-snap-align: end;">
+        <footer>
+            <p>&copy; <span id="year">Hamza Nasir</span></p>
+        </footer>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
